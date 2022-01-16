@@ -6,9 +6,8 @@ pipeline{
     stages{
         stage("Maven Build"){
             when {
-                //branch "develop"
                 expression{
-                env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startWith("feature*")
+                env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startsWith("feature")
                 }
             }
             steps{
