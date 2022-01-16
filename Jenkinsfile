@@ -6,7 +6,10 @@ pipeline{
     stages{
         stage("Maven Build"){
             when {
+                expression{
+                echo ${env.BRANCH_NAME.startWith("feature")}
                 env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startWith("feature")
+                }
             }
             steps{
                sh "mvn package"
