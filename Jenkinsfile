@@ -6,6 +6,7 @@ pipeline{
     stages{
         stage("Maven Build"){
             when {
+                // this is for pull testing
                 expression{
                 env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startsWith("feature")
                 }
