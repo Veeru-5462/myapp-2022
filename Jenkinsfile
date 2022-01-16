@@ -8,6 +8,8 @@ pipeline{
             when {
                 //branch "develop"
                 expression{
+                echo "in expresstion:::" 
+                echo env.BRAANCH_NAME
                 env.BRAANCH_NAME.equals("develop") || env.BRANCH_NAME.startWith()("feature*")
                 }
             }
