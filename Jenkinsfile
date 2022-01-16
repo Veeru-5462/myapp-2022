@@ -8,7 +8,7 @@ pipeline{
             when {
                 //branch "develop"
                 expression{
-                env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startWith()("feature*")
+                env.BRANCH_NAME.equals("develop") || env.BRANCH_NAME.startWith("feature*")
                 }
             }
             steps{
