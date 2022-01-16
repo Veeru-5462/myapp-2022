@@ -7,7 +7,6 @@ pipeline{
         stage("Maven Build"){
             when {
                 expression{
-                echo ${BRANCH_NAME}
                 env.BRANCH_NAME.equals("develop")
                 }
             }
