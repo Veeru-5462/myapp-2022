@@ -20,9 +20,12 @@ pipeline{
                 branch "develop"
             }
             steps{
+                scripts{
                withSonarQubeEnv('sonar7') {
+                   
                     sh "mvn sonar:sonar"
                }
+                }
             }
         }
                 stage("SonarQube Status"){
