@@ -20,7 +20,7 @@ pipeline{
                 branch "develop"
             }
             steps{
-                scripts{
+                script{
                withSonarQubeEnv('sonar7') {
                    
                     sh "mvn sonar:sonar"
@@ -33,8 +33,9 @@ pipeline{
                 branch "develop"
             }
             steps{
-                scripts{
+              
                timeout(time: 1, unit: 'HOURS') {
+                     script{
                 //    For this to work, we should add webhook in sonar
                 //    http://172.31.3.50:8080/sonarqube-webhook/
                     def qg = waitForQualityGate()
