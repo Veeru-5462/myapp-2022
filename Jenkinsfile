@@ -33,6 +33,7 @@ pipeline{
                 branch "develop"
             }
             steps{
+                scripts{
                timeout(time: 1, unit: 'HOURS') {
                 //    For this to work, we should add webhook in sonar
                 //    http://172.31.3.50:8080/sonarqube-webhook/
@@ -40,6 +41,7 @@ pipeline{
                     if (qg.status != 'OK') {
                         error "Pipeline aborted due to quality gate failure: ${qg.status}"
                     }
+                }
                 }
             }
         }
