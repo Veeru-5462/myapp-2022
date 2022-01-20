@@ -27,7 +27,7 @@ pipeline{
       steps{
           script{
          withSonarQubeEnv('sonar7') {
-             sh "sonar-scanner"
+             sh " mvn sonar-scanner"
               //sh "mvn sonar:sonar"
              
          }
