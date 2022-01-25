@@ -22,7 +22,7 @@ pipeline{
  
   stage("SonarQube Analysis"){
       when {
-          branch "develop"
+          branch "develop1"
       }
       steps{
           script{
@@ -42,7 +42,7 @@ pipeline{
       
           stage("SonarQube Status"){
             when {
-                branch "develop"
+                branch "develop1"
             }
             steps{
               
@@ -67,6 +67,7 @@ pipeline{
             }
             steps{
                echo "uploading artifacts to nexus...."
+                 nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/myweb-0.0.6.war', type: 'war']], credentialsId: 'nexus3', groupId: 'in.javahome', nexusUrl: '172.31.2.74:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myapp-release', version: '0.0.6'
             }
         }
         stage("Deploy To QA"){
